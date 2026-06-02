@@ -1,12 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website - Home</title>
+    <title>My Projects</title>
     <style>
-        /* Global Styles */
+        /* Reset basic styles */
         * {
             margin: 0;
             padding: 0;
@@ -15,12 +25,11 @@
         }
 
         body {
-            background-color: #f8fafc;
+            background-color: #f8fafc; /* Light gray background */
             min-height: 100vh;
-            color: #1e293b;
         }
 
-        /* Navbar Styling */
+        /* 1. Navbar Styling */
         .project-navbar {
             background-color: #1e3a8a; /* Deep blue */
             display: flex;
@@ -42,10 +51,12 @@
             display: flex;
             list-style: none;
             gap: 1.5rem;
+            margin: 0;
+            padding: 0;
         }
 
         .project-navbar .navbar-menu a {
-            color: #93c5fd;
+            color: #93c5fd; /* Soft light blue */
             text-decoration: none;
             font-size: 1rem;
             font-weight: 500;
@@ -59,79 +70,126 @@
             border-bottom: 2px solid #60a5fa;
         }
 
-        /* Active highlight for Home page */
         .project-navbar .navbar-menu a.active {
             color: #ffffff;
             border-bottom: 2px solid #ffffff;
         }
 
-        /* Homepage Layout Content */
-        .hero-container {
-            max-width: 900px;
-            margin: 4rem auto;
+        /* 2. Main Page Layout Container */
+        .project-container {
+            max-width: 1100px; /* Widened slightly to fit two apps comfortably */
+            margin: 3rem auto;
             padding: 0 1.5rem;
             text-align: center;
         }
 
-        .hero-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .project-title {
             color: #1e293b;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
 
-        .hero-subtitle {
+        .project-description {
             color: #64748b;
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 3rem;
         }
 
-        .image-frame {
+        /* 3. Responsive Grid for Multiple Apps */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(392px, 1fr));
+            gap: 2.5rem;
+            justify-items: center; /* Centers the apps in their respective grid sections */
+        }
+
+        /* Individual Card Wrapper for Each App */
+        .iframe-card {
             background: #ffffff;
             padding: 12px;
             border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            max-width: 100%;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: fit-content;
         }
 
-        .hero-image {
-            max-width: 100%;
-            height: auto;
+        .iframe-card h2 {
+            font-size: 1.25rem;
+            color: #334155;
+            margin-bottom: 0.75rem;
+        }
+
+        .iframe-card iframe {
             border-radius: 8px;
-            display: block;
+            display: block; 
         }
     </style>
 </head>
 <body>
 
-    <nav class="project-navbar">
-        <a href="index.html" class="navbar-brand">BlueNav</a>
+ <nav class="project-navbar">
+        <div class="navbar-brand" onclick="switchPage('home')">BlueNav</div>
         <ul class="navbar-menu">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="projects.html">Projects</a></li> 
+            <li><a id="nav-home" class="active" onclick="switchPage('home')">Home</a></li>
+            <li><a id="nav-projects" onclick="switchPage('projects')">Projects</a></li> 
         </ul>
     </nav>
 
-    <main class="hero-container">
-        <h1 class="hero-title">Welcome to My Portfolio</h1>
-        <p class="hero-subtitle">
-            I am passionate about technology and computer science. Explore my website to see the interactive applications I've been building!
-        </p>
-        
-        <div class="image-frame">
-            <img class="hero-image" src="https://jessup.edu/wp-content/uploads/2024/01/Computer-Science-vs-Computer-Engineering-Which-Degree-is-Right-for-You.jpg" alt="Computer Science and Programming">
+    <main id="page-home" class="page-view active-view">
+        <div class="hero-container">
+            <h1 class="hero-title">Welcome to My Portfolio</h1>
+            <p class="hero-subtitle">
+                I am passionate about technology and computer science. Explore my website to see the interactive applications I've been building!
+            </p>
+            
+            <div class="image-frame">
+                <img class="hero-image" src="https://jessup.edu/wp-content/uploads/2024/01/Computer-Science-vs-Computer-Engineering-Which-Degree-is-Right-for-You.jpg" alt="Computer Science and Programming">
+            </div>
         </div>
     </main>
 
+    <main id="page-projects" class="page-view">
+        <div class="project-container">
+            <h1 class="project-title">My Web Projects</h1>
+            <p class="project-description">Check out the interactive apps I built using Code.org App Lab!</p>
+            
+            <div class="projects-grid">
+                <div class="iframe-card">
+                    <h2>Project 1</h2>
+                    <iframe width="392" height="620" style="border: 0px;" src="https://studio.code.org/projects/applab/ee256668-4870-4a5c-9f1b-3c7b801b4869/embed"></iframe>
+                </div>
+
+                <div class="iframe-card">
+                    <h2>Project 2</h2>
+                    <iframe width="392" height="620" style="border: 0px;" src="https://studio.code.org/projects/applab/f1d93f5d-15db-4936-8d71-81c2b5f48ddf/embed"></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function switchPage(pageName) {
+            // 1. Hide all page sections
+            document.querySelectorAll('.page-view').forEach(view => {
+                view.classList.remove('active-view');
+            });
+            
+            // 2. Remove the 'active' underline styling from all navigation links
+            document.getElementById('nav-home').classList.remove('active');
+            document.getElementById('nav-projects').classList.remove('active');
+            
+            // 3. Show the targeted page and add the underline to the clicked nav link
+            if (pageName === 'home') {
+                document.getElementById('page-home').classList.add('active-view');
+                document.getElementById('nav-home').classList.add('active');
+            } else if (pageName === 'projects') {
+                document.getElementById('page-projects').classList.add('active-view');
+                document.getElementById('nav-projects').classList.add('active');
+            }
+            
+            // Automatically scroll to the top when switching pages
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
 </body>
-</html>
-
-
-
-
-
-
 </html>

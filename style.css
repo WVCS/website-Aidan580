@@ -1,11 +1,87 @@
-body {<!DOCTYPE html>
+h1 {
+  color: blue;
+}
+
+/* Reset basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navbar container styling */
+        .navbar {
+            background-color: #1e3a8a; /* Deep blue background */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Logo or Brand Name */
+        .navbar-logo {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation links container */
+        .navbar-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        /* Individual link styling */
+        .navbar-links a {
+            color: #93c5fd; /* Soft, light blue for links */
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding: 0.25rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        /* Hover effect */
+        .navbar-links a:hover {
+            color: #ffffff; /* Turns white on hover */
+            border-bottom: 2px solid #60a5fa; /* Electric blue underline highlight */
+        }
+
+        /* Active page styling (optional helper class) */
+        .navbar-links a.active {
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        /* Simple placeholder content area */
+        .content {
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #1e293b;
+        }
+
+Ah, got it! You want to put that Code.org App Lab project right onto your website's projects page, alongside the blue navigation bar we just made.
+
+Here is how you can seamlessly combine the navigation bar and your App Lab iframe into a single page layout.
+
+The Complete Combined Code
+You can save this as your projects.html file (or paste the <nav> and <main> sections into your existing page):
+
+HTML
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Projects</title>
     <style>
-        /* Global Styles */
+        /* Reset basic styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,14 +90,13 @@ body {<!DOCTYPE html>
         }
 
         body {
-            background-color: #f8fafc;
+            background-color: #f8fafc; /* Light gray background to make the app pop */
             min-height: 100vh;
-            color: #1e293b;
         }
 
-        /* Navbar Styling (Identical look, different active link) */
+        /* 1. Navbar Styling */
         .project-navbar {
-            background-color: #1e3a8a;
+            background-color: #1e3a8a; /* Deep blue */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,10 +116,12 @@ body {<!DOCTYPE html>
             display: flex;
             list-style: none;
             gap: 1.5rem;
+            margin: 0;
+            padding: 0;
         }
 
         .project-navbar .navbar-menu a {
-            color: #93c5fd;
+            color: #93c5fd; /* Soft light blue */
             text-decoration: none;
             font-size: 1rem;
             font-weight: 500;
@@ -58,86 +135,40 @@ body {<!DOCTYPE html>
             border-bottom: 2px solid #60a5fa;
         }
 
-        /* Active highlight for Projects page */
         .project-navbar .navbar-menu a.active {
             color: #ffffff;
-            border-bottom: 2px solid #ffffff;
+            border-bottom: 2px solid #ffffff; /* White underline for current page */
         }
 
-        /* Projects Page Layout Content */
+        /* 2. Project Layout Styling */
         .project-container {
-            max-width: 1100px;
+            max-width: 800px;
             margin: 3rem auto;
             padding: 0 1.5rem;
             text-align: center;
         }
 
         .project-title {
+            color: #1e293b;
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
 
         .project-description {
             color: #64748b;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(392px, 1fr));
-            gap: 2.5rem;
-            justify-items: center;
-        }
-
-        .iframe-card {
+        /* Wrapper to center and style the iframe nicely */
+        .iframe-wrapper {
+            display: inline-block;
             background: #ffffff;
-            padding: 12px;
-            border-radius: 16px;
+            padding: 10px;
+            border-radius: 12px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: fit-content;
         }
 
-        .iframe-card h2 {
-            font-size: 1.25rem;
-            color: #334155;
-            margin-bottom: 0.75rem;
+        .iframe-wrapper iframe {
+            border-radius: 6px;
+            display: block; /* Removes unwanted bottom spacing */
         }
-
-        .iframe-card iframe {
-            border-radius: 8px;
-            display: block; 
-        }
-    </style>
-</head>
-<body>
-
-    <nav class="project-navbar">
-        <a href="index.html" class="navbar-brand">BlueNav</a>
-        <ul class="navbar-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html" class="active">Projects</a></li> 
-        </ul>
-    </nav>
-
-    <main class="project-container">
-        <h1 class="project-title">My Web Projects</h1>
-        <p class="project-description">Check out the interactive apps I built using Code.org App Lab!</p>
-        
-        <div class="projects-grid">
-            <div class="iframe-card">
-                <h2>Project 1</h2>
-                <iframe width="392" height="620" style="border: 0px;" src="https://studio.code.org/projects/applab/ee256668-4870-4a5c-9f1b-3c7b801b4869/embed"></iframe>
-            </div>
-
-            <div class="iframe-card">
-                <h2>Project 2</h2>
-                <iframe width="392" height="620" style="border: 0px;" src="https://studio.code.org/projects/applab/f1d93f5d-15db-4936-8d71-81c2b5f48ddf/embed"></iframe>
-            </div>
-        </div>
-    </main>
-
-</body>
-</html>
-
-}

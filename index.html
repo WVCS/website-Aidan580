@@ -1,5 +1,133 @@
 <html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website - Home</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background-color: #f8fafc;
+            min-height: 100vh;
+            color: #1e293b;
+        }
+
+        /* Navbar Styling */
+        .project-navbar {
+            background-color: #1e3a8a; /* Deep blue */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-navbar .navbar-brand {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .project-navbar .navbar-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .project-navbar .navbar-menu a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding: 0.25rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .project-navbar .navbar-menu a:hover {
+            color: #ffffff;
+            border-bottom: 2px solid #60a5fa;
+        }
+
+        /* Active highlight for Home page */
+        .project-navbar .navbar-menu a.active {
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        /* Homepage Layout Content */
+        .hero-container {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .hero-subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .image-frame {
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="project-navbar">
+        <a href="index.html" class="navbar-brand">BlueNav</a>
+        <ul class="navbar-menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="projects.html">Projects</a></li> 
+        </ul>
+    </nav>
+
+    <main class="hero-container">
+        <h1 class="hero-title">Welcome to My Portfolio</h1>
+        <p class="hero-subtitle">
+            I am passionate about technology and computer science. Explore my website to see the interactive applications I've been building!
+        </p>
+        
+        <div class="image-frame">
+            <img class="hero-image" src="https://jessup.edu/wp-content/uploads/2024/01/Computer-Science-vs-Computer-Engineering-Which-Degree-is-Right-for-You.jpg" alt="Computer Science and Programming">
+        </div>
+    </main>
+
+</body>
+</html>
 
 
 
